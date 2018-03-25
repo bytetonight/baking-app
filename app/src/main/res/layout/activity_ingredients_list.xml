@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <!--<variable
+            name="clickHandler"
+            type="android.example.com.foodoo.handlers.DataBindingClickHandler" />
+
+        <variable
+            name="ingredient"
+            type="android.example.com.foodoo.models.Ingredient" />-->
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="4dp"
+        tools:context="android.example.com.foodoo.ui.IngredientsListActivity">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ingredients_list"
+            android:name="android.example.com.foodoo.StepListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            app:spanCount="1"
+            tools:context="android.example.com.foodoo.ui.IngredientsListActivity"
+            tools:listitem="@layout/ingredient_list_item" />
+
+    </LinearLayout>
+</layout>
+

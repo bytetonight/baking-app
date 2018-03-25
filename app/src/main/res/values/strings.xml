@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Foodoo</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="preference_file_key">234jh2349sd</string>
+    <string name="json_error">Problem parsing JSON results</string>
+    <string name="noInternetConnection">No Internet Connection</string>
+    <string name="guess">Can you guess the composer?</string>
+    <string name="notification_text">Press play to view!</string>
+    <string name="sample_list_load_error">Error loading one or more samples!</string>
+    <string name="sample_not_found_error">Sample not found!</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="restart">Restart</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="widget_label">Baking App Ingredients Widget</string>
+    <string name="desc_show_previous">show previous</string>
+    <string name="desc_show_next">show next</string>
+</resources>

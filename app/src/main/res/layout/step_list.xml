@@ -1,0 +1,33 @@
+<!-- included by activity_step_list.xml -->
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="activityHandledClick"
+            type="android.example.com.foodoo.handlers.ClickActionCallback" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include android:id="@+id/ingredients_button_inc"
+            layout="@layout/ingredients_button_layout"
+            bind:activityHandledClick="@{activityHandledClick}"/>
+
+        <android.support.v7.widget.RecyclerView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/step_list"
+            android:name="android.example.com.foodoo.StepListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="LinearLayoutManager"
+            app:spanCount="1"
+            tools:context="android.example.com.foodoo.ui.StepListActivity"
+            tools:listitem="@layout/step_list_item" />
+    </LinearLayout>
+
+</layout>

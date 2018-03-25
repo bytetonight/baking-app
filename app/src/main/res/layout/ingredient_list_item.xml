@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ingredient"
+            type="android.example.com.foodoo.models.Ingredient" />
+    </data>
+
+    <android.support.v7.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@{ingredient.cardColor}"
+        app:cardUseCompatPadding="true"
+        tools:layout_height="match_parent">
+        <!--app:cardBackgroundColor="@color/stepItemBackground"-->
+        <!--android:background="@{recipe.cardColor}"-->
+
+        <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            tools:background="@color/colorAccent"
+            tools:layout_height="match_parent">
+
+            <TextView
+
+                android:id="@+id/textViewQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@{ingredient.getQuantityString()}"
+                android:textColor="@color/recipeHeaderText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1" />
+
+            <TextView
+
+                android:id="@+id/textViewMeasure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@{ingredient.measure}"
+                android:textColor="@color/recipeHeaderText"
+                app:layout_constraintStart_toEndOf="@+id/textViewQuantity"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Oz" />
+
+            <TextView
+
+                android:id="@+id/textViewIngredient"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:text="@{ingredient.ingredient}"
+
+                android:textColor="@color/recipeHeaderText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewQuantity"
+                tools:text="Baking powder" />
+
+            <ImageView
+                android:id="@+id/ingredient_unit_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textViewMeasure"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMeasure"
+                app:speeshullSrc="@{ingredient.measure_image_resource}"
+                tools:srcCompat="@drawable/ic_cup_of_tea" />
+           <!-- app:srcCompat="@drawable/ic_cup_of_tea"-->
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v7.widget.CardView>
+</layout>

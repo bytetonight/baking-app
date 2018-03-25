@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="activityHandledClick"
+            type="android.example.com.foodoo.handlers.ClickActionCallback" />
+
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context="android.example.com.foodoo.ui.StepListActivity">
+
+
+
+        <!-- This guy includes the actual RecyclerViews depending on screen width -->
+        <include android:id="@+id/step_list_inc"
+            layout="@layout/step_list"
+            bind:activityHandledClick="@{activityHandledClick}"/>
+
+    </LinearLayout>
+</layout>
+

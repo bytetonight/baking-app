@@ -1,0 +1,62 @@
+<!-- included by activity_step_list.xml -->
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="activityHandledClick"
+            type="android.example.com.foodoo.handlers.ClickActionCallback" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:divider="?android:attr/dividerHorizontal"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        tools:context="android.example.com.foodoo.ui.StepListActivity">
+
+        <!--
+        This layout is a two-pane layout for the Items
+        master/detail flow.
+
+        -->
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginEnd="4dp"
+            android:orientation="vertical">
+
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="step_list.xml(sw600dp)" />-->
+
+            <include android:id="@+id/ingredients_button_inc"
+                layout="@layout/ingredients_button_layout"
+                bind:activityHandledClick="@{activityHandledClick}"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/step_list"
+                android:name="android.example.com.foodoo.StepListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"
+                app:spanCount="1"
+                tools:context="android.example.com.foodoo.ui.StepListActivity"
+                tools:listitem="@layout/step_list_item" />
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <FrameLayout
+            android:id="@+id/step_detail_container"
+            android:layout_marginStart="4dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4" />
+
+    </LinearLayout>
+</layout>

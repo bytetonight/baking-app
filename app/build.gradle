@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+def daggerVersion = '2.11'
+def androidLibVersion = '26.1.0'
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "android.example.com.foodoo"
+        minSdkVersion 17
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+        //Android Gradle Plugin 3.1.0 Canary 6 ships with an optional new compiler.
+        //enableV2=true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$androidLibVersion"
+    implementation "com.android.support:support-v4:$androidLibVersion"
+    implementation "com.android.support:recyclerview-v7:$androidLibVersion"
+    implementation "com.android.support:design:$androidLibVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0-beta5'
+    implementation "com.android.support:cardview-v7:$androidLibVersion"
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'com.google.android.exoplayer:exoplayer:r2.2.0'
+    // Dagger 2 Stuff
+    compile "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    //implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support:support-annotations:26.1.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.1'
+    // Yep this needs to be implemented because otherwise
+    // error: package android.support.test.espresso does not exist
+    compile 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
+}
